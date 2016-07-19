@@ -1,17 +1,14 @@
-package com.ranga.service.impl;
-import com.ranga.dao.EmployeeDAO;
-import com.ranga.entity.Employee;
-import com.ranga.service.EmployeeService;
+package com.mav.service.impl;
+import com.mav.dao.EmployeeDAO;
+import com.mav.entity.Employee;
+import com.mav.service.EmployeeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-/**
- * @author Ranga Reddy
- * @version 1.0
- */
+
 @Service
 @Transactional
 public class EmployeeServiceImpl implements EmployeeService {

@@ -1,6 +1,6 @@
-package com.ranga.controller;
-import com.ranga.entity.Employee;
-import com.ranga.service.EmployeeService;
+package com.mav.controller;
+import com.mav.entity.Employee;
+import com.mav.service.EmployeeService;
 
 import org.jboss.logging.Logger;
 import org.springframework.stereotype.Controller;
@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * @author Ranga Reddy
- * @version 1.0
- */
 @Controller
 public class EmployeeController {
 	

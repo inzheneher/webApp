@@ -1,4 +1,4 @@
-package com.ranga.entity;
+package com.mav.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,11 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.io.Serializable;
-/**
- * @author Ranga Reddy
- * @version 1.0
- * 
- */
+
 @Entity
 @Table(name = "Employees")
 public class Employee implements Serializable {

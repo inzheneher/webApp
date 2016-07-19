@@ -1,8 +1,3 @@
-<%--
-  User: Ranga Reddy
-  Date: 1/27/2015
-  Time: 9:48 PM
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -16,8 +11,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Employee Information</title>
-    <!-- Bootstrap CSS -->
-    <%-- <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet"> --%>    
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <style type="text/css">
         .myrow-container{
@@ -105,6 +98,5 @@
 		    return true;
 		};	
 	</script>
-
 </body>
 </html>

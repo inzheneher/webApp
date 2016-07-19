@@ -1,11 +1,8 @@
-/**
- * 
- */
-package com.ranga.dao.impl;
+package com.mav.dao.impl;
 
-import com.ranga.dao.EmployeeDAO;
-import com.ranga.entity.Employee;
-import com.ranga.util.HibernateUtil;
+import com.mav.dao.EmployeeDAO;
+import com.mav.entity.Employee;
+import com.mav.util.HibernateUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,11 +10,6 @@ import org.springframework.stereotype.Repository;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * @author Ranga Reddy
- * @version 1.0
- */
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
