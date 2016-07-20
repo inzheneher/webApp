@@ -52,9 +52,9 @@ public class User implements Serializable{
     public String toString() {
         return "User{" +
                 "id=" + user_id +
-                ", name='" + user_name + '\'' +
+                ", name=\"" + user_name + "\'" +
                 ", password=" + user_pass +
                 ", role=" + user_role +
-                '}';
+                "}";
     }
 }
