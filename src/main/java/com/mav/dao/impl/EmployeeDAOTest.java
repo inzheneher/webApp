@@ -17,7 +17,6 @@ public class EmployeeDAOTest {
     @Autowired
     private EmployeeDAO dao;
 
-
     @Test
     public void findById(){
         Employee employee = dao.getEmployee(1);
