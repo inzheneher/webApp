@@ -10,71 +10,68 @@ public class Goods implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long goods_id;
+    private long id;
 
     @Column
-    private String goods_name;
+    private String name;
 
     @Column
-    private String goods_description;
+    private String description;
 
     @Column
-    private double goods_price;
+    private double price;
 
     @Column
-    private int goods_quantity;
+    private int quantity;
 
-    public Goods() {
+    public long getId() {
+        return id;
     }
 
-    public long getGoods_id() {
-        return goods_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setGoods_id(long goods_id) {
-        this.goods_id = goods_id;
+    public String getName() {
+        return name;
     }
 
-    public String getGoods_name() {
-        return goods_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setGoods_name(String goods_name) {
-        this.goods_name = goods_name;
+    public String getDescription() {
+        return description;
     }
 
-    public String getGoods_description() {
-        return goods_description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setGoods_description(String goods_description) {
-        this.goods_description = goods_description;
+    public double getPrice() {
+        return price;
     }
 
-    public double getGoods_price() {
-        return goods_price;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public void setGoods_price(double goods_price) {
-        this.goods_price = goods_price;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public int getGoods_quantity() {
-        return goods_quantity;
-    }
-
-    public void setGoods_quantity(int goods_quantity) {
-        this.goods_quantity = goods_quantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
         return "Goods{" +
-                "id=" + goods_id +
-                ", name=\"" + goods_name + "\'" +
-                ", description=" + goods_description +
-                ", price=" + goods_price +
-                ", quantity=" + goods_quantity +
+                "id=" + id +
+                ", name=\"" + name + "\'" +
+                ", description=" + description +
+                ", price=" + price +
+                ", quantity=" + quantity +
                 "}";
     }
 }

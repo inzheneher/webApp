@@ -11,83 +11,80 @@ public class Purchase implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long purchase_id;
+    private long id;
+
+    @Column(name = "user_id")
+    private int userId;
+
+    @Column(name = "goods_id")
+    private int goodsId;
 
     @Column
-    private int user_id;
+    private Date date;
 
     @Column
-    private int goods_id;
+    private double prise;
 
     @Column
-    private Date purchase_date;
+    private int quantity;
 
-    @Column
-    private double purchase_prise;
-
-    @Column
-    private int purchase_quantity;
-
-    public Purchase() {
+    public long getId() {
+        return id;
     }
 
-    public long getPurchase_id() {
-        return purchase_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setPurchase_id(long purchase_id) {
-        this.purchase_id = purchase_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public int getGoodsId() {
+        return goodsId;
     }
 
-    public int getGoods_id() {
-        return goods_id;
+    public void setGoodsId(int goodsId) {
+        this.goodsId = goodsId;
     }
 
-    public void setGoods_id(int goods_id) {
-        this.goods_id = goods_id;
+    public Date getDate() {
+        return date;
     }
 
-    public Date getPurchase_date() {
-        return purchase_date;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public void setPurchase_date(Date purchase_date) {
-        this.purchase_date = purchase_date;
+    public double getPrise() {
+        return prise;
     }
 
-    public double getPurchase_prise() {
-        return purchase_prise;
+    public void setPrise(double prise) {
+        this.prise = prise;
     }
 
-    public void setPurchase_prise(double purchase_prise) {
-        this.purchase_prise = purchase_prise;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public int getPurchase_quantity() {
-        return purchase_quantity;
-    }
-
-    public void setPurchase_quantity(int purchase_quantity) {
-        this.purchase_quantity = purchase_quantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
         return "Purchase{" +
-                "id=" + purchase_id +
-                ", user=" + user_id +
-                ", goods=" + goods_id +
-                ", date=" + purchase_date +
-                ", price=" + purchase_prise +
-                ", quantity=" + purchase_quantity +
+                "id=" + id +
+                ", user=" + userId +
+                ", goods=" + goodsId +
+                ", date=" + date +
+                ", price=" + prise +
+                ", quantity=" + quantity +
                 "}";
     }
 }

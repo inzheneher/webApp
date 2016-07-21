@@ -11,50 +11,56 @@ public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long user_id;
+    private long id;
 
     @Column
-    private String user_name;
+    private String name;
 
     @Column
-    private String user_pass;
+    private String pass;
 
     @Column
-    private boolean user_role;
+    private boolean role;
 
-    public User() {
-    }
     public long getId() {
-        return user_id;
+        return id;
     }
-    public void setId(long user_id) {
-        this.user_id = user_id;
+
+    public void setId(long id) {
+        this.id = id;
     }
+
     public String getName() {
-        return user_name;
+        return name;
     }
-    public void setName(String user_name) {
-        this.user_name = user_name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getUser_pass() {
-        return user_pass;
+
+    public String getPass() {
+        return pass;
     }
-    public void setUser_pass(String user_pass) {
-        this.user_pass = user_pass;
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
-    public boolean isUser_role() {
-        return user_role;
+
+    public boolean isRole() {
+        return role;
     }
-    public void setUser_role(boolean user_role) {
-        this.user_role = user_role;
+
+    public void setRole(boolean role) {
+        this.role = role;
     }
+
     @Override
     public String toString() {
         return "User{" +
-                "id=" + user_id +
-                ", name=\"" + user_name + "\'" +
-                ", password=" + user_pass +
-                ", role=" + user_role +
+                "id=" + id +
+                ", name=\"" + name + "\'" +
+                ", password=" + pass +
+                ", role=" + role +
                 "}";
     }
 }
