@@ -23,7 +23,7 @@ public class Purchase implements Serializable{
     private Date date;
 
     @Column
-    private double prise;
+    private double price;
 
     @Column
     private int quantity;
@@ -60,12 +60,12 @@ public class Purchase implements Serializable{
         this.date = date;
     }
 
-    public double getPrise() {
-        return prise;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrise(double prise) {
-        this.prise = prise;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getQuantity() {
@@ -83,7 +83,7 @@ public class Purchase implements Serializable{
                 ", user=" + userId +
                 ", goods=" + goodsId +
                 ", date=" + date +
-                ", price=" + prise +
+                ", price=" + price +
                 ", quantity=" + quantity +
                 "}";
     }
