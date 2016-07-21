@@ -13,7 +13,7 @@ public class HibernateUtil {
 	@Autowired
     private SessionFactory sessionFactory;
 		
-    public <T> Serializable create(final T entity) {
+    public <T> Serializable save(final T entity) {
         return sessionFactory.getCurrentSession().save(entity);        
     }
     

@@ -23,7 +23,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public long createEmployee(Employee employee) {        
-        return (Long) hibernateUtil.create(employee);
+        return (Long) hibernateUtil.save(employee);
     }
     
     @Override
