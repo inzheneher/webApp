@@ -23,7 +23,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public long saveUser(User user) {
-        return (long) hibernateUtil.save(user);
+        return (Long) hibernateUtil.save(user);
     }
 
     @Override
