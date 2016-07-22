@@ -26,4 +26,29 @@ public class GoodsDAOTest {
         Assert.assertEquals(105.0, goods.getPrice(), 0.001);
         Assert.assertEquals(1, goods.getQuantity());
     }
+
+    @Test
+    public void getAll(){
+        Assert.assertEquals(1, dao.getAllGoods().size());
+    }
+
+    @Test
+    public void delete(){
+        dao.deleteGoods(1);
+        Assert.assertEquals(0, dao.getAllGoods().size());
+    }
+
+    @Test
+    public void updateGoods(){
+        Goods goods = dao.getGoods(1);
+        dao.updateGoods(goods);
+        Assert.assertEquals(goods, dao.getGoods(1));
+    }
+
+    @Test
+    public void saveGoods(){
+        Goods goods = dao.getGoods(1);
+        dao.saveGoods(goods);
+        Assert.assertEquals(goods, dao.getGoods(1));
+    }
 }
