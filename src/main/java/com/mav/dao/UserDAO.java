@@ -10,5 +10,4 @@ public interface UserDAO {
     void deleteUser(long id);
     List<User> getAllUsers();
     User getUser(long id);
-    List<User> getAllUsers(String userName);
 }
