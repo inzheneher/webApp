@@ -5,6 +5,7 @@ import com.mav.entity.User;
 import com.mav.util.HibernateUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
@@ -19,32 +20,32 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Autowired
-    private HibernateUtil hibernateUtil;
+    private HibernateTemplate hibernateTemplate;
 
     @Override
     public long saveUser(User user) {
-        return (Long) hibernateUtil.save(user);
+        return (Long) hibernateTemplate.save(user);
     }
 
     @Override
-    public User updateUser(User user) {
-        return hibernateUtil.update(user);
+    public void updateUser(User user) {
+        hibernateTemplate.update(user);
     }
 
     @Override
     public void deleteUser(long id) {
         User user = new User();
         user.setId(id);
-        hibernateUtil.delete(user);
+        hibernateTemplate.delete(user);
     }
 
     @Override
     public List<User> getAllUsers() {
-        return hibernateUtil.fetchAll(User.class);
+        return hibernateTemplate.loadAll(User.class);
     }
 
     @Override
     public User getUser(long id) {
-        return hibernateUtil.fetchById(id, User.class);
+        return hibernateTemplate.get(User.class, id);
     }
 }
