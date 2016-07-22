@@ -2,14 +2,10 @@ package com.mav.dao.impl;
 
 import com.mav.dao.GoodsDAO;
 import com.mav.entity.Goods;
-import com.mav.util.HibernateUtil;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
