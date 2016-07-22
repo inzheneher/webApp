@@ -25,8 +25,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDAO.createEmployee(employee);
     }
     @Override
-    public Employee updateEmployee(Employee employee) {
-        return employeeDAO.updateEmployee(employee);
+    public void updateEmployee(Employee employee) {
+        employeeDAO.updateEmployee(employee);
     }
     @Override
     public void deleteEmployee(long id) {
@@ -39,9 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getEmployee(long id) {
         return employeeDAO.getEmployee(id);
-    }    
+    }
+
     @Override
     public List<Employee> getAllEmployees(String employeeName) {
-    	return employeeDAO.getAllEmployees(employeeName);
+        return null;
     }
 }
