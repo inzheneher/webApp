@@ -29,7 +29,7 @@ public class UserDAOTest {
     }
 
     @Test
-    public void fetchAll(){
+    public void getAll(){
         Assert.assertEquals(1, dao.getAllUsers().size());
     }
 
@@ -37,5 +37,19 @@ public class UserDAOTest {
     public void delete(){
         dao.deleteUser(1);
         Assert.assertEquals(0, dao.getAllUsers().size());
+    }
+
+    @Test
+    public void updateUser(){
+        User user = dao.getUser(1);
+        dao.updateUser(user);
+        Assert.assertEquals(user, dao.getUser(1));
+    }
+
+    @Test
+    public void saveUser(){
+        User user = dao.getUser(1);
+        dao.saveUser(user);
+        Assert.assertEquals(user, dao.getUser(1));
     }
 }

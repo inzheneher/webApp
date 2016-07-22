@@ -19,8 +19,8 @@ public class UserDAOImpl implements UserDAO{
     private HibernateTemplate hibernateTemplate;
 
     @Override
-    public long saveUser(User user) {
-        return (Long) hibernateTemplate.save(user);
+    public void saveUser(User user) {
+        hibernateTemplate.save(user);
     }
 
     @Override
