@@ -20,12 +20,8 @@ public class GoodsDAOImpl implements GoodsDAO{
 
     @Override
     public long saveGoods(Goods goods) {
-        return (Long) hibernateTemplate.save(goods);
-    }
-
-    @Override
-    public void updateGoods(Goods goods) {
-        hibernateTemplate.update(goods);
+        hibernateTemplate.saveOrUpdate(goods);
+        return goods.getId();
     }
 
     @Override

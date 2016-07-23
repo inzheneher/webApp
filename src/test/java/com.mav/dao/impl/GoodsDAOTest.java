@@ -2,6 +2,7 @@ package com.mav.dao.impl;
 
 import com.mav.dao.GoodsDAO;
 import com.mav.entity.Goods;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.junit.Assert.assertTrue;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
@@ -39,16 +43,17 @@ public class GoodsDAOTest {
     }
 
     @Test
-    public void updateGoods(){
-        Goods goods = dao.getGoods(1);
-        dao.updateGoods(goods);
-        Assert.assertEquals(goods, dao.getGoods(1));
-    }
-
-    @Test
     public void saveGoods(){
-        Goods goods = dao.getGoods(1);
-        dao.saveGoods(goods);
-        Assert.assertEquals(goods, dao.getGoods(1));
+        Goods newGoods = new Goods();
+        newGoods.setName("new goody");
+        newGoods.setPrice(123.0);
+        newGoods.setDescription("dis is new fancy goody!");
+        newGoods.setQuantity(100);
+
+        long newGoodyId = dao.saveGoods(newGoods);
+
+        Goods goodyFromDb = dao.getGoods(newGoodyId);
+
+        assertTrue(EqualsBuilder.reflectionEquals(newGoods, goodyFromDb));
     }
 }
