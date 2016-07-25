@@ -22,7 +22,7 @@ public class GoodsDAOTest {
     private GoodsDAO dao;
 
     @Test
-    public void findById(){
+    public void findById() {
         Goods goods = dao.getGoods(1);
         Assert.assertEquals(1, goods.getId());
         Assert.assertEquals("tomat", goods.getName());
@@ -32,18 +32,18 @@ public class GoodsDAOTest {
     }
 
     @Test
-    public void getAll(){
+    public void getAll() {
         Assert.assertEquals(1, dao.getAllGoods().size());
     }
 
     @Test
-    public void delete(){
+    public void delete() {
         dao.deleteGoods(1);
         Assert.assertEquals(0, dao.getAllGoods().size());
     }
 
     @Test
-    public void saveGoods(){
+    public void saveGoods() {
         Goods newGoods = new Goods();
         newGoods.setName("new goody");
         newGoods.setPrice(123.0);

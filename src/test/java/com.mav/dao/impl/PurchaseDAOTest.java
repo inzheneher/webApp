@@ -10,8 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Calendar;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
 @Transactional
@@ -20,7 +18,7 @@ public class PurchaseDAOTest {
     private PurchaseDAO dao;
 
     @Test
-    public void findById(){
+    public void findById() {
         Purchase purchase = dao.getPurchase(1);
         Assert.assertEquals(1, purchase.getId());
         Assert.assertEquals(1, purchase.getUserId());
@@ -31,25 +29,25 @@ public class PurchaseDAOTest {
     }
 
     @Test
-    public void getAll(){
+    public void getAll() {
         Assert.assertEquals(1, dao.getAllPurchase().size());
     }
 
     @Test
-    public void delete(){
+    public void delete() {
         dao.deletePurchase(1);
         Assert.assertEquals(0, dao.getAllPurchase().size());
     }
 
     @Test
-    public void updateGoods(){
+    public void updateGoods() {
         Purchase goods = dao.getPurchase(1);
         dao.updatePurchase(goods);
         Assert.assertEquals(goods, dao.getPurchase(1));
     }
 
     @Test
-    public void saveGoods(){
+    public void saveGoods() {
         Purchase goods = dao.getPurchase(1);
         dao.savePurchase(goods);
         Assert.assertEquals(goods, dao.getPurchase(1));

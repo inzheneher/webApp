@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "purchase")
-public class Purchase implements Serializable{
+public class Purchase implements Serializable {
     private static final long serialVersionUID = -7988799579036225137L;
 
     @Id

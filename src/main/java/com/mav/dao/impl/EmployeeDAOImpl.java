@@ -10,36 +10,36 @@ import java.util.List;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
-    
-	public EmployeeDAOImpl() {
-    	System.out.println("EmployeeDAOImpl");
-    }
-	
-	@Autowired
+
+    @Autowired
     private HibernateTemplate hibernateTemplate;
 
+    public EmployeeDAOImpl() {
+        System.out.println("EmployeeDAOImpl");
+    }
+
     @Override
-    public long createEmployee(Employee employee) {        
+    public long createEmployee(Employee employee) {
         return (Long) hibernateTemplate.save(employee);
     }
-    
+
     @Override
     public void updateEmployee(Employee employee) {
         hibernateTemplate.update(employee);
     }
-    
+
     @Override
     public void deleteEmployee(long id) {
         Employee employee = new Employee();
         employee.setId(id);
         hibernateTemplate.delete(employee);
     }
-    
+
     @Override
-    public List<Employee> getAllEmployees() {        
+    public List<Employee> getAllEmployees() {
         return hibernateTemplate.loadAll(Employee.class);
     }
-    
+
     @Override
     public Employee getEmployee(long id) {
         return hibernateTemplate.get(Employee.class, id);

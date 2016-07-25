@@ -9,23 +9,19 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
+
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
 
     public UserDAOImpl() {
         System.out.println("UserDAOImpl");
     }
 
-    @Autowired
-    private HibernateTemplate hibernateTemplate;
-
     @Override
-    public void saveUser(User user) {
-        hibernateTemplate.save(user);
-    }
-
-    @Override
-    public void updateUser(User user) {
-        hibernateTemplate.update(user);
+    public long saveUser(User user) {
+        hibernateTemplate.saveOrUpdate(user);
+        return user.getId();
     }
 
     @Override

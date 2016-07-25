@@ -18,7 +18,7 @@
     <div class="panel panel-success">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <div align="left"><b>Employees List</b> </div>
+                <div align="left"><b>Employees List</b></div>
                 <div align="right"><a href="createEmployee">Add New Employee</a></div>
             </h3>
         </div>
@@ -26,15 +26,16 @@
             <c:if test="${empty employeeList}">
                 There are no Employees
             </c:if>
-            <c:if test="${not empty employeeList}">   
-            
-            	<form action="searchEmployee">
-            		<div class="row">
-					  <div class="col-md-4">Search Employees: <input type='text' name='searchName' id='searchName'/> </div>
-					  <div class="col-md-4"><input class="btn btn-success" type='submit' value='Search'/></div>
-					</div>
-            	</form>         	
-            	            	
+            <c:if test="${not empty employeeList}">
+
+                <form action="searchEmployee">
+                    <div class="row">
+                        <div class="col-md-4">Search Employees: <input type='text' name='searchName' id='searchName'/>
+                        </div>
+                        <div class="col-md-4"><input class="btn btn-success" type='submit' value='Search'/></div>
+                    </div>
+                </form>
+
                 <table class="table table-hover table-bordered">
                     <thead style="background-color: #bce8f1;">
                     <tr>
@@ -49,12 +50,12 @@
                     <tbody>
                     <c:forEach items="${employeeList}" var="emp">
                         <tr>
-                        	<th><c:out value="${emp.id}"/></th>
-                        	<th><c:out value="${emp.name}"/></th>
-                        	<th><c:out value="${emp.age}"/></th>
-                        	<th><c:out value="${emp.salary}"/></th> 
-                        	<th><a href="editEmployee?id=<c:out value='${emp.id}'/>">Edit</a></th>
-                        	<th><a href="deleteEmployee?id=<c:out value='${emp.id}'/>">Delete</a></th>                         	
+                            <th><c:out value="${emp.id}"/></th>
+                            <th><c:out value="${emp.name}"/></th>
+                            <th><c:out value="${emp.age}"/></th>
+                            <th><c:out value="${emp.salary}"/></th>
+                            <th><a href="editEmployee?id=<c:out value='${emp.id}'/>">Edit</a></th>
+                            <th><a href="deleteEmployee?id=<c:out value='${emp.id}'/>">Delete</a></th>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -62,7 +63,7 @@
             </c:if>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>    
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -9,14 +9,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class PurchaseDAOImpl implements PurchaseDAO{
+public class PurchaseDAOImpl implements PurchaseDAO {
+
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
 
     public PurchaseDAOImpl() {
         System.out.println("PurchaseDAOImpl");
     }
-
-    @Autowired
-    private HibernateTemplate hibernateTemplate;
 
     @Override
     public long savePurchase(Purchase purchase) {

@@ -18,7 +18,7 @@ public class EmployeeDAOTest {
     private EmployeeDAO dao;
 
     @Test
-    public void findById(){
+    public void findById() {
         Employee employee = dao.getEmployee(1);
         Assert.assertEquals(1, employee.getId());
         Assert.assertEquals(42, employee.getAge());

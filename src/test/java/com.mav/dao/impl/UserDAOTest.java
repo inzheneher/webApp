@@ -10,8 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
 @Transactional
@@ -20,7 +18,7 @@ public class UserDAOTest {
     private UserDAO dao;
 
     @Test
-    public void findById(){
+    public void findById() {
         User user = dao.getUser(1);
         Assert.assertEquals(1, user.getId());
         Assert.assertEquals("Antuan", user.getName());
@@ -29,25 +27,18 @@ public class UserDAOTest {
     }
 
     @Test
-    public void getAll(){
+    public void getAll() {
         Assert.assertEquals(1, dao.getAllUsers().size());
     }
 
     @Test
-    public void delete(){
+    public void delete() {
         dao.deleteUser(1);
         Assert.assertEquals(0, dao.getAllUsers().size());
     }
 
     @Test
-    public void updateUser(){
-        User user = dao.getUser(1);
-        dao.updateUser(user);
-        Assert.assertEquals(user, dao.getUser(1));
-    }
-
-    @Test
-    public void saveUser(){
+    public void saveUser() {
         User user = dao.getUser(1);
         dao.saveUser(user);
         Assert.assertEquals(user, dao.getUser(1));

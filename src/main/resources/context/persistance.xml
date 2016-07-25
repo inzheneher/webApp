@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/tx
@@ -8,15 +9,15 @@
     <!-- DataSource -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
-        <property name="driverClass" value="${database.driverClass}" />
-        <property name="jdbcUrl" value="${database.url}" />
-        <property name="user" value="${database.username}" />
-        <property name="password" value="${database.password}" />
+        <property name="driverClass" value="${database.driverClass}"/>
+        <property name="jdbcUrl" value="${database.url}"/>
+        <property name="user" value="${database.username}"/>
+        <property name="password" value="${database.password}"/>
 
-        <property name="acquireIncrement" value="${connection.acquireIncrement}" />
-        <property name="minPoolSize" value="${connection.minPoolSize}" />
-        <property name="maxPoolSize" value="${connection.maxPoolSize}" />
-        <property name="maxIdleTime" value="${connection.maxIdleTime}" />
+        <property name="acquireIncrement" value="${connection.acquireIncrement}"/>
+        <property name="minPoolSize" value="${connection.minPoolSize}"/>
+        <property name="maxPoolSize" value="${connection.maxPoolSize}"/>
+        <property name="maxIdleTime" value="${connection.maxIdleTime}"/>
     </bean>
 
     <!-- Hibernate SessionFactory -->
@@ -41,8 +42,8 @@
     <!-- Transaction -->
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
