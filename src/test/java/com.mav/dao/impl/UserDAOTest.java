@@ -2,6 +2,7 @@ package com.mav.dao.impl;
 
 import com.mav.dao.UserDAO;
 import com.mav.entity.User;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
@@ -39,8 +42,15 @@ public class UserDAOTest {
 
     @Test
     public void saveUser() {
-        User user = dao.getUser(1);
-        dao.saveUser(user);
-        Assert.assertEquals(user, dao.getUser(1));
+        User newUser = new User();
+        newUser.setName("new user");
+        newUser.setPass("slkjdhflsdk");
+        newUser.setRole(true);
+
+        long newUserId = dao.saveUser(newUser);
+
+        User userFromDb = dao.getUser(newUserId);
+
+        assertTrue(EqualsBuilder.reflectionEquals(newUser, userFromDb));
     }
 }

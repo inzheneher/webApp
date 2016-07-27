@@ -2,6 +2,7 @@ package com.mav.dao.impl;
 
 import com.mav.dao.PurchaseDAO;
 import com.mav.entity.Purchase;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Calendar;
+
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
@@ -40,16 +45,20 @@ public class PurchaseDAOTest {
     }
 
     @Test
-    public void updateGoods() {
-        Purchase goods = dao.getPurchase(1);
-        dao.updatePurchase(goods);
-        Assert.assertEquals(goods, dao.getPurchase(1));
-    }
-
-    @Test
     public void saveGoods() {
-        Purchase goods = dao.getPurchase(1);
-        dao.savePurchase(goods);
-        Assert.assertEquals(goods, dao.getPurchase(1));
+        Purchase newPurchase = new Purchase();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2016, Calendar.JULY, 25);
+
+        newPurchase.setDate(calendar.getTime());
+        newPurchase.setPrice(123.0);
+        newPurchase.setQuantity(18);
+
+        long newPurchaseId = dao.savePurchase(newPurchase);
+
+        Purchase purchaseFromDb = dao.getPurchase(newPurchaseId);
+
+        assertTrue(EqualsBuilder.reflectionEquals(newPurchase, purchaseFromDb));
     }
 }

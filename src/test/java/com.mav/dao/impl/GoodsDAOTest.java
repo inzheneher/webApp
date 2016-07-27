@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertTrue;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:/context/componentScan.xml", "classpath:/context/persistance.xml"})
 @Transactional
