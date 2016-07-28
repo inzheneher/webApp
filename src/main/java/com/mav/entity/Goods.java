@@ -74,4 +74,14 @@ public class Goods implements Serializable {
                 ", quantity=" + quantity +
                 "}";
     }
+
+    public String[] convertToStringArray (Goods goods) {
+        String[] resultArray = new String[5];
+        resultArray[0] = Long.toString(goods.id);
+        resultArray[1] = goods.name;
+        resultArray[2] = goods.description;
+        resultArray[3] = Double.toString(goods.price);
+        resultArray[4] = Integer.toString(goods.quantity);
+        return resultArray;
+    }
 }

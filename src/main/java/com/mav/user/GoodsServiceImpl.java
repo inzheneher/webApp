@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class GoodsServiceImpl implements GoodsService{
+public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private GoodsDAO goodsDAO;
