@@ -16,7 +16,13 @@
 <body>
 <h1>I've done it, boss!</h1>
 <div wicket:id="pagingNavigator"></div>
-<br/>
-<h2 wicket:id="msg"></h2>
+<table>
+    <tr>
+        <th>ID</th><th>NAME</th><th>DESCRIPTION</th><th>PRICE</th><th>QUANTITY</th>
+    </tr>
+    <tr wicket:id="rows">
+        <td wicket:id="dataRow"></td>
+    </tr>
+</table>
 </body>
 </html>

@@ -53,6 +53,5 @@ public class GoodsListPage extends WebPage {
 
         add(dataView);
         add(new PagingNavigator("pagingNavigator", dataView));
-        add(new Label("msg", goodsService.getAllGoods().toString()));
     }
 }
