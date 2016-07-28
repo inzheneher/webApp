@@ -1,6 +1,6 @@
 package com.mav;
 
-import com.mav.wicket.EmployeeListPage;
+import com.mav.wicket.GoodsListPage;
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -8,9 +8,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class WicketApplication extends WebApplication {
 
     @Override
-    public Class<EmployeeListPage> getHomePage() {
+    public Class<GoodsListPage> getHomePage() {
 
-        return EmployeeListPage.class; // return default page
+        return GoodsListPage.class; // return default page
     }
 
     @Override

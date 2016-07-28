@@ -44,8 +44,4 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDAO.getEmployee(id);
     }
 
-    @Override
-    public List<Employee> getAllEmployees(String employeeName) {
-        return null;
-    }
 }
