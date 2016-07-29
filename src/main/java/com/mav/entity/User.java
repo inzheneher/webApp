@@ -20,7 +20,7 @@ public class User implements Serializable {
     private String pass;
 
     @Column
-    private Boolean role;
+    private Boolean admin;
 
     public Long getId() {
         return id;
@@ -46,12 +46,12 @@ public class User implements Serializable {
         this.pass = pass;
     }
 
-    public boolean isRole() {
-        return role;
+    public boolean isAdmin() {
+        return admin;
     }
 
-    public void setRole(Boolean role) {
-        this.role = role;
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class User implements Serializable {
                 "id=" + id +
                 ", name=\"" + name + "\'" +
                 ", password=" + pass +
-                ", role=" + role +
+                ", role=" + admin +
                 "}";
     }
 }

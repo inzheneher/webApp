@@ -26,7 +26,7 @@ public class UserDAOTest {
         Assert.assertEquals(1L, (long) user.getId());
         Assert.assertEquals("Antuan", user.getName());
         Assert.assertEquals("qwerty", user.getPass());
-        Assert.assertEquals(true, user.isRole());
+        Assert.assertEquals(true, user.isAdmin());
     }
 
     @Test
@@ -45,7 +45,7 @@ public class UserDAOTest {
         User newUser = new User();
         newUser.setName("new user");
         newUser.setPass("slkjdhflsdk");
-        newUser.setRole(true);
+        newUser.setAdmin(true);
 
         Long newUserId = dao.saveUser(newUser);
 
@@ -62,6 +62,6 @@ public class UserDAOTest {
         Assert.assertEquals(1L, (long) userFromDb.getId());
         Assert.assertEquals("Antuan", userFromDb.getName());
         Assert.assertEquals("qwerty", userFromDb.getPass());
-        Assert.assertEquals(true, userFromDb.isRole());
+        Assert.assertEquals(true, userFromDb.isAdmin());
     }
 }
