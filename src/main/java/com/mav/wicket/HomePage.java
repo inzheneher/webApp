@@ -38,12 +38,14 @@ public class HomePage extends WebPage {
         }
 
         public final void onSubmit() {
-            User user = userService.findByCredentials(username, password);
 
-            if(username.equals("test") && password.equals("test"))
-                loginStatus = "Congratulations!";
-            else
+            User userFromWebForm = userService.findByCredentials(username, password);
+
+            if (userFromWebForm == null) {
                 loginStatus = "Wrong username or password !";
+            } else {
+                loginStatus = "Congratulations!";
+            }
         }
     }
 }
