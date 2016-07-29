@@ -5,11 +5,13 @@ import com.mav.entity.User;
 import java.util.List;
 
 public interface UserDAO {
-    long saveUser(User user);
+    Long saveUser(User user);
 
-    void deleteUser(long id);
+    void deleteUser(Long id);
 
     List<User> getAllUsers();
 
-    User getUser(long id);
+    User getUser(Long id);
+
+    User findByCredentials(String username, String password);
 }

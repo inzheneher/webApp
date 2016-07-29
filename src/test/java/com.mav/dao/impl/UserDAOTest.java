@@ -22,8 +22,8 @@ public class UserDAOTest {
 
     @Test
     public void findById() {
-        User user = dao.getUser(1);
-        Assert.assertEquals(1, user.getId());
+        User user = dao.getUser(1L);
+        Assert.assertEquals(1L, (long) user.getId());
         Assert.assertEquals("Antuan", user.getName());
         Assert.assertEquals("qwerty", user.getPass());
         Assert.assertEquals(true, user.isRole());
@@ -36,7 +36,7 @@ public class UserDAOTest {
 
     @Test
     public void delete() {
-        dao.deleteUser(1);
+        dao.deleteUser(1L);
         Assert.assertEquals(0, dao.getAllUsers().size());
     }
 
@@ -47,10 +47,21 @@ public class UserDAOTest {
         newUser.setPass("slkjdhflsdk");
         newUser.setRole(true);
 
-        long newUserId = dao.saveUser(newUser);
+        Long newUserId = dao.saveUser(newUser);
 
         User userFromDb = dao.getUser(newUserId);
 
         assertTrue(EqualsBuilder.reflectionEquals(newUser, userFromDb));
+    }
+
+    @Test
+    public void findByCredentials() {
+
+        User userFromDb = dao.findByCredentials("Antuan", "qwerty");
+
+        Assert.assertEquals(1L, (long) userFromDb.getId());
+        Assert.assertEquals("Antuan", userFromDb.getName());
+        Assert.assertEquals("qwerty", userFromDb.getPass());
+        Assert.assertEquals(true, userFromDb.isRole());
     }
 }

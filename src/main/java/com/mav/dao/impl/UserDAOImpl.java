@@ -19,13 +19,13 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public long saveUser(User user) {
+    public Long saveUser(User user) {
         hibernateTemplate.saveOrUpdate(user);
         return user.getId();
     }
 
     @Override
-    public void deleteUser(long id) {
+    public void deleteUser(Long id) {
         User user = new User();
         user.setId(id);
         hibernateTemplate.delete(user);
@@ -37,7 +37,20 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUser(long id) {
+    public User getUser(Long id) {
         return hibernateTemplate.get(User.class, id);
+    }
+
+    @Override
+    public User findByCredentials(String username, String password) {
+        User user = new User();
+        user.setName(username);
+        user.setPass(password);
+        List <User> userFromDB = hibernateTemplate.findByExample(user);
+        if (userFromDB.isEmpty()) {
+            return null;
+        } else {
+            return userFromDB.get(0);
+        }
     }
 }

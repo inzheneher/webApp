@@ -1,15 +1,22 @@
 package com.mav.wicket;
 
-import org.apache.wicket.request.mapper.parameter.PageParameters;
+import com.mav.entity.User;
+import com.mav.user.UserService;
+import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.PasswordTextField;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.CompoundPropertyModel;
+import org.apache.wicket.request.mapper.parameter.PageParameters;
+import org.apache.wicket.spring.injection.annot.SpringBean;
 
 public class HomePage extends WebPage {
     private static final long serialVersionUID = 1L;
+
+    @SpringBean
+    private UserService userService;
+
 
     public HomePage(PageParameters parameters) {
         super(parameters);
@@ -31,6 +38,8 @@ public class HomePage extends WebPage {
         }
 
         public final void onSubmit() {
+            User user = userService.findByCredentials(username, password);
+
             if(username.equals("test") && password.equals("test"))
                 loginStatus = "Congratulations!";
             else

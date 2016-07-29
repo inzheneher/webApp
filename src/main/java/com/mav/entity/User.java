@@ -11,7 +11,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @Column
     private String name;
@@ -20,13 +20,13 @@ public class User implements Serializable {
     private String pass;
 
     @Column
-    private boolean role;
+    private Boolean role;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class User implements Serializable {
         return role;
     }
 
-    public void setRole(boolean role) {
+    public void setRole(Boolean role) {
         this.role = role;
     }
 
